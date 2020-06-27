@@ -1,13 +1,15 @@
 import unittest
 from camio import Camio
+from vaca import Vaca
+from raca import Raca
 
 class TestVaques(unittest.TestCase):
 
     def test_entraTreuVaques(self):
         c=Camio()
-        v = Vaca()
+        v = Vaca("bonfiassia", 200, Raca("Normanda", 1))
         c.entra(v)
-        c.surt(v)
+        c.treu(v)
         self.assertTrue(c.nVaques==0)
         c.entra(v)
         self.assertTrue(c.nVaques==1)

@@ -34,6 +34,15 @@ class TestVaques(unittest.TestCase):
         c.entra(v)
         self.assertTrue(c.nVaques == 3, "S'esperaven 3 vaques.") 
 
+    def test_lletCamio(self):
+        c=Camio(200)
+        pesVaca=100
+        lletPerLitre=2
+        self.assertTrue(c.lletPotencialDeTotesLesVaques==0, "S'esperava que un camió buit, no tingués llet potencial.")
+        v = Vaca("Bonfiassia", 100, Raca("Normanda", 2))
+        c.entra(v)
+        self.assertTrue(c.lletPotencialDeTotesLesVaques==(pesVaca*lletPerLitre), "Error el comput de llet.")
+
 
 if __name__ == '__main__':
     unittest.main()

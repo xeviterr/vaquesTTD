@@ -22,8 +22,17 @@ class TestVaques(unittest.TestCase):
         c.entra(v)
         v = Vaca("Joana", 1, Raca("Normanda", 1))
         c.entra(v)
-        self.assertTrue(c.nVaques == 2, "Error incorrecte en pes maxim camió")
-        
+        self.assertTrue(c.nVaques == 2, "S'esperaven 2 vaques.") 
+
+    def test_esPermetenMesVaquesSiNoSuperaPes(self):
+        c=Camio(200)
+        v = Vaca("Bonfiassia", 100, Raca("Normanda", 1))
+        c.entra(v)
+        v = Vaca("Maria", 99, Raca("Normanda", 1))
+        c.entra(v)
+        v = Vaca("Joana", 1, Raca("Normanda", 1))
+        c.entra(v)
+        self.assertTrue(c.nVaques == 3, "S'esperaven 3 vaques.") 
 
 
 if __name__ == '__main__':

@@ -1,10 +1,11 @@
 from vaca import Vaca
+from typing import List
 
 class Camio:
 
     def __init__(self, pesMaxim=1000):
         super().__init__()
-        self.vaques = []
+        self.vaques:List[Vaca] = []
         self.pesMaxim = pesMaxim
         self.totalPes = 0
 
@@ -20,7 +21,13 @@ class Camio:
         self.vaques.remove(vaca)
         self.totalPes -= vaca.pes
 
-    def __get_nvaques(self):
+    @property
+    def nVaques(self):
         return self.vaques.__len__()
 
-    nVaques = property(__get_nvaques)
+    @property
+    def lletPotencialDeTotesLesVaques(self):
+        totalLlet=0
+        for vaca in self.vaques:
+            totalLlet+=vaca.pes*vaca.raca.litresPerKg
+        return totalLlet
